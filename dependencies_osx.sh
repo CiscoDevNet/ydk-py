@@ -8,4 +8,4 @@ brew rm -f --ignore-dependencies python python3
 curl -O https://devhub.cisco.com/artifactory/osx-ydk/0.7.1/libydk-0.7.1-Darwin.pkg
 sudo installer -pkg libydk*pkg -target /
 
-#sudo easy_install pip
+sudo easy_install pip

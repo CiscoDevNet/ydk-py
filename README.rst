@@ -166,7 +166,7 @@ Create a new virtual environment::
 
   $ mkvirtualenv -p python2.7 ydk-py
 
-At this point, you can perform the quick install or the installation from source described above.  Take into account that must not attempt to install YDK as root under a virtual environment.
+At this point, you can perform the quick install or the installation from source described above.  Take into account that you must not attempt to install YDK as root under a virtual environment.
 
 Documentation and Support
 --------------------------

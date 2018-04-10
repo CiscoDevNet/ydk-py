@@ -9,6 +9,8 @@ matrix:
 #          dist: trusty
         - env: DOCKER=true OS_TYPE=centos OS_VERSION=centos7
         - env: DOCKER=true OS_TYPE=ubuntu OS_VERSION=xenial
+  allow_failures:
+    - os: osx
 
 before_install:
     - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then ./dependencies_osx.sh          ; fi
