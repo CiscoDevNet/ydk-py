@@ -19,19 +19,19 @@
 ##### Netconf provider improvements
   * Added support for connecting to devices with no `get-schema` support ([#554](https://github.com/CiscoDevNet/ydk-gen/issues/544))
 ##### ydk-gen improvements
-  * Updated leafs in python model APIs to use native python types. ([604](https://github.com/CiscoDevNet/ydk-gen/issues/604))
-  * Improved the size and performance of Golang model APIs ([604](https://github.com/CiscoDevNet/ydk-gen/issues/604))
-  * Fixed issue with handling of some typedefs in Golang ([706](https://github.com/CiscoDevNet/ydk-gen/issues/706), [747](https://github.com/CiscoDevNet/ydk-gen/issues/747))
+  * Updated leafs in python model APIs to use native python types. ([#604](https://github.com/CiscoDevNet/ydk-gen/issues/604))
+  * Improved the size and performance of Golang model APIs ([#604](https://github.com/CiscoDevNet/ydk-gen/issues/604))
+  * Fixed issue with handling of some typedefs in Golang ([#706](https://github.com/CiscoDevNet/ydk-gen/issues/706), [#747](https://github.com/CiscoDevNet/ydk-gen/issues/747))
 ##### Documentation improvements
-  * Improved enum documentation ([716](https://github.com/CiscoDevNet/ydk-gen/issues/716))
-  * Enhanced table of contents for documentation ([715](https://github.com/CiscoDevNet/ydk-gen/issues/715))
+  * Improved enum documentation ([#716](https://github.com/CiscoDevNet/ydk-gen/issues/716))
+  * Enhanced table of contents for documentation ([#715](https://github.com/CiscoDevNet/ydk-gen/issues/715))
 ##### Testing/error improvements
-  * Improved ydk-gen error reporting and fixed `--one-class-per-module` option of generating python packages ([604](https://github.com/CiscoDevNet/ydk-gen/issues/604))
-  * Added coverage for Golang and C++ ([740](https://github.com/CiscoDevNet/ydk-gen/issues/740), [705](https://github.com/CiscoDevNet/ydk-gen/issues/705))
+  * Improved ydk-gen error reporting and fixed `--one-class-per-module` option of generating python packages ([#604](https://github.com/CiscoDevNet/ydk-gen/issues/604))
+  * Added coverage for Golang and C++ ([740](https://github.com/CiscoDevNet/ydk-gen/issues/740), [#705](https://github.com/CiscoDevNet/ydk-gen/issues/705))
 ##### Installation improvements
-  * Introduced automated docker builds to produce docker images with `ydk-gen`, `ydk-py` and `ydk-go` pre-installed ([724](https://github.com/CiscoDevNet/ydk-gen/issues/724))
+  * Introduced automated docker builds to produce docker images with `ydk-gen`, `ydk-py` and `ydk-go` pre-installed ([#724](https://github.com/CiscoDevNet/ydk-gen/issues/724))
   * Removed `epel-release` as one of the requirements for libydk RPM ([#627](https://github.com/CiscoDevNet/ydk-gen/issues/627))
-  * Added testing for `libydk` packages ([604](https://github.com/CiscoDevNet/ydk-gen/issues/604))
+  * Added testing for `libydk` packages ([#604](https://github.com/CiscoDevNet/ydk-gen/issues/604))
 
 ### 2018-01-31 version 0.7.0
 
